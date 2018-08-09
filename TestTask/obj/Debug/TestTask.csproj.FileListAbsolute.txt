@@ -1,0 +1,6 @@
+C:\Users\ivanm\Desktop\TestTask-master\TestTask\bin\Debug\TestTask.exe
+C:\Users\ivanm\Desktop\TestTask-master\TestTask\bin\Debug\TestTask.pdb
+C:\Users\ivanm\Desktop\TestTask-master\TestTask\obj\Debug\TestTask.csprojAssemblyReference.cache
+C:\Users\ivanm\Desktop\TestTask-master\TestTask\obj\Debug\TestTask.csproj.CoreCompileInputs.cache
+C:\Users\ivanm\Desktop\TestTask-master\TestTask\obj\Debug\TestTask.exe
+C:\Users\ivanm\Desktop\TestTask-master\TestTask\obj\Debug\TestTask.pdb
