@@ -18,7 +18,20 @@ namespace TestTask
             IsEof = true;
 
             // TODO : Заменить на создание реального стрима для чтения файла!
-            _localStream = null;
+            Stream streamReader = null;
+            try
+            {
+                if (!File.Exists(fileFullPath))
+                    throw new FileNotFoundException();
+                streamReader = File.OpenRead(fileFullPath);
+                _localStream = new MemoryStream();
+                streamReader.CopyTo(_localStream);
+                IsEof = false;
+                _localStream.Position = 0;
+            } finally
+            {
+                streamReader.Close();
+            }
         }
                 
         /// <summary>
@@ -26,8 +39,11 @@ namespace TestTask
         /// </summary>
         public bool IsEof
         {
-            get; // TODO : Заполнять данный флаг при достижении конца файла/стрима при чтении
-            private set;
+            get
+            {
+                return _localStream.Position >= _localStream.Length;
+            } // TODO : Заполнять данный флаг при достижении конца файла/стрима при чтении
+            private set { }
         }
 
         /// <summary>
@@ -39,6 +55,20 @@ namespace TestTask
         public char ReadNextChar()
         {
             // TODO : Необходимо считать очередной символ из _localStream
+            try
+            {
+                int ch = _localStream.ReadByte();
+                if (ch == -1)
+                {
+                    IsEof = true;
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                    return (char)ch;
+            } finally
+            {
+
+            }
             throw new NotImplementedException();
         }
 
